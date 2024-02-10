@@ -1,0 +1,224 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools} % Math packages
+\usepackage[utf8]{inputenc} % Required for non-English characters
+\usepackage[english]{babel} % Spell-checking
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for header and footer marks
+\usepackage[margin=1.2in]{geometry} % Sets page margin
+\usepackage{esdiff} % Defines commands for differentials
+\mathtoolsset{showonlyrefs} % Only referenced equations are numbered
+\usepackage{xfrac} % Allows for slanted fractions using \sfrac{*}{*}
+\usepackage{graphicx} % For pictures
+\usepackage{physics}
+\usepackage{bm}
+
+% The following sets up the header and footer
+\fancyhf{}
+\pagestyle{fancy}
+\lhead{\hmwkCourse} %left header
+\rhead{\hmwkTitle \, \textendash \, \hmwkName \, \textendash \, \hmwkClass} % right header
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+% The following sets the information shown in header and footer
+\newcommand{\hmwkTitle}{Homework 2} % Assignment title
+\newcommand{\hmwkCourse}{Optics} % Course/class
+\newcommand{\hmwkName}{John Meneghini} % Your name
+\newcommand{\hmwkClass}{2/9/2024}
+
+% The following sets new paragraphs to start with a line skip instead of an indentation. Just my preference.
+\setlength{\parindent}{0pt} %No indentation of new paragraphs
+\setlength{\parskip}{10pt}
+
+\begin{document}
+
+\section*{Question 1}
+Two thin lenses having focal lengths of $+15.0 cm$ and $-15.0$ cm respectively are positioned $60.0$ cm
+apart. A page of print is held $25.0$ cm in front of the positive lens. Describe, in detail, the image of the
+print (i.e. insofar as it’s paraxial). \\\\
+
+\begin{center}
+    $s_1 = 25.0$ cm, $f_1 = 15.0$ cm, $f_2 = -15.0$ cm, and $d = 60.0$ cm.
+\end{center}
+$$ \frac{1}{f_1} = \frac{1}{s_1} + \frac{1}{p_1} \rightarrow  \frac{1}{p_1} = \frac{1}{15.0} - \frac{1}{25.0}$$
+$$ p_1 = 37.5 \textrm{ cm}$$
+$$ \frac{1}{f_2} = \frac{1}{d - p_1} + \frac{1}{p_2} \rightarrow  \frac{1}{p_2} = -\frac{1}{15.0} - \frac{1}{60 - 37.5}$$
+$$ p_2 = -9.0 \textrm{ cm}$$\\
+What about magnification?
+$$ m = m_1 m_2 = \left( - \frac{p_1}{s_1}\right) \left( - \frac{p_2}{s_2}\right)$$
+$$ m = \left(-\frac{37.5}{25.0}\right) \left(\frac{9}{60-37.5}\right) = -0.5984$$
+So, the image will be virtual, 9.0 cm in front of the negative lens (between the lenses), 0.5984 times smaller, and inverted.
+
+\newpage
+\section*{Question 2}
+Draw a ray diagram for the combination of two positive lenses wherein their separation equals the
+sum of their respective focal lengths. Do this carefully, with a ruler. You may do your sketch on the
+arrangement shown on the last page of this assignment
+
+\begin{figure*}[htb!]
+    \centering
+    \includegraphics[angle=90]{hw2q2.pdf}
+\end{figure*}
+
+\section*{Question 5}
+Show that the triple scalar product $(\va{A} \cross \va{B}) \vdot \va{C}$ can be written as
+$$ (\va{A} \cross \va{B}) \vdot \va{C} = 
+    \begin{vmatrix}
+    A_1 & A_2 & A_3 \\
+    B_1 & B_2 & B_3 \\
+    C_1 & C_2 & C_3 
+    \end{vmatrix}  $$ \\\\
+
+Write the vector's in term's of their components:
+
+$$ \va{A} = \begin{bmatrix}
+    A_1 \\
+    A_2 \\
+    A_3 \\
+\end{bmatrix} $$
+and similarly for $\va{B}$ and $\va{C}$.
+
+So,
+$$ \va{A} \cross \va{B} = \begin{bmatrix}
+    A_1 \\
+    A_2 \\
+    A_3 \\
+\end{bmatrix} \cross
+\begin{bmatrix}
+    B_1 \\
+    B_2 \\
+    B_3 \\
+\end{bmatrix} = \begin{vmatrix}
+    \vu{i} & \vu{j} & \vu{k} \\
+    A_1 & A_2 & A_3 \\
+    B_1 & B_2 & B_3 \\
+    \end{vmatrix} = \vu{i}(A_2 B_3 - A_3 B_2) + \vu{j}(A_3 B_1 - A_1 B_3) + \vu{k}(A_1 B_2 - A_2 B_1) $$
+by cofactor expansion of the determinant.
+Then, 
+$$(\va{A} \cross \va{B}) \vdot \va{C} = C_1 (A_2 B_3 - A_3 B_2) + C_2 (A_3 A_1 - A_1 A_3) + C_3 (A_1 A_2 - A_2 A_1)$$
+We can reverse the cofactor expansion, giving
+$$ (\va{A} \cross \va{B}) \vdot \va{C} = 
+    \begin{vmatrix}
+    C_1 & C_2 & C_3 \\
+    A_1 & A_2 & A_3 \\
+    B_1 & B_2 & B_3 \\
+    \end{vmatrix}$$
+
+Switching a row of the determinant switches the sign of the result:
+$$ -(\va{A} \cross \va{B}) \vdot \va{C} = 
+    \begin{vmatrix}
+    A_1 & A_2 & A_3 \\
+    C_1 & C_2 & C_3 \\
+    B_1 & B_2 & B_3 \\
+    \end{vmatrix}$$
+Switching again, the sign once again becomes positive:
+$$ (\va{A} \cross \va{B}) \vdot \va{C} = 
+    \begin{vmatrix}
+    A_1 & A_2 & A_3 \\
+    B_1 & B_2 & B_3 \\
+    C_1 & C_2 & C_3 
+    \end{vmatrix}  $$ \\\\
+
+
+\section*{Question 6}
+Suppose we have a positive meniscus lens of radii 6 and 10 cm and a thickness of 3 cm, made with
+a material of index of refraction $n = 1.5$. Determine its focal length and the locations of its principle
+points.\\\\
+
+Positive lens, so
+\begin{center}
+    $R_1 = 6$ cm, $R_2 = 10$ cm, $d = 3$ cm, and $n = 1.5$
+\end{center}
+First, we need $f$
+$$ \frac{1}{f} = (n - 1) \left(\frac{1}{R_1} - \frac{1}{R_2} + \frac{(n-1)d}{nR_1 R_2}\right) = (1.5 - 1) \left(\frac{1}{6} - \frac{1}{10} + \frac{(1.5-1)(3)}{(1.5)(6)(10)}\right)$$
+$$ f = 25 \textrm{ cm} $$
+$$ h_1 = - \frac{f(n-1)d}{nR_2} = - \frac{(25)(1.5-1)(3)}{(1.5)(10)} = -2.5 \textrm{ cm}$$
+$$ h_2 = - \frac{f(n-1)d}{nR_1} = - \frac{(25)(1.5-1)(3)}{(1.5)(6)} = -4.1667 \textrm{ cm}$$
+
+\section*{Question 7}
+A spherical glass bottle 20 cm in diameter with walls that are negligibly thin is filled with water.
+The bottle is sitting on the back seat of a car on a nice, sunny day. What is the focal length of the
+“lens?”\\\\
+
+\begin{center}
+    $R_1=10$ cm, $R_2=-10$ cm, $d = 20$ cm, and $n = 1.333$
+\end{center}
+$$ \frac{1}{f} = (n - 1) \left(\frac{1}{R_1} - \frac{1}{R_2} + \frac{(n-1)d}{nR_1 R_2}\right) = (1.333 - 1) \left(\frac{1}{10} + \frac{1}{10} + \frac{(1.333-1)(20)}{(1.333)(10)(-10)}\right)$$
+$$ f = 20 \textrm{ cm}$$
+
+
+\section*{Question 8}
+It is found that sunlight is focused to a spot 29.6 cm from the back face of a thick lens, which has
+principle points $h_1 = 0.2$ cm and $h_2 = -0.4$ cm. Determine the location of the image of a candle that
+is placed 49.8 cm in front of this lens.\\\\
+
+Assuming the rays of light from the sun are parallel, this means the $s \rightarrow \infty$ and $p=f$, but $f$ and $p$ are measured from $h_2$, making
+$p = 29.6 + 0.4 = 30.0$ cm $=f$. So,
+$$ \frac{1}{s} + \frac{1}{p} = \frac{1}{f} \rightarrow \frac{1}{p} = \frac{1}{30} - \frac{1}{s}$$
+But, $s$ is measured from the $h_1$, so $s = 49.8 + 0.2 = 50.0$ cm.
+$$ \frac{1}{p} = \frac{1}{30} - \frac{1}{50.0} \rightarrow p=75.0 \textrm{ cm}$$
+So, the image will be located $75.0 - 0.4=74.6$ cm from the back of the lens.
+
+\section*{Question 9}
+A crown glass double-convex lens that is 4.0 cm thick has an index of refraction of 3/2. Given that
+its radii are 4.0 cm and 15 cm, locate its principle points and compute its focal length. If a television
+screen is placed 1.0 m from the front of the lens, where will the real image of the picture appear?\\\\
+
+Since the lens is double-convex, $R_2$ is negative.
+\begin{center}
+    $R_1 = 4.0$ cm, $R_2 = -15$ cm, $d = 4.0$ cm, and $n = 3/2$
+\end{center}
+$$ \frac{1}{f} = (n - 1) \left(\frac{1}{R_1} - \frac{1}{R_2} + \frac{(n-1)d}{nR_1 R_2}\right) = (1.5 - 1) \left(\frac{1}{4} + \frac{1}{15} + \frac{(1.5-1)(4)}{(1.5)(4)(-15)}\right)$$
+$$ f = 6.79 $$
+$$ h_1 = - \frac{f(n-1)d}{nR_2} = - \frac{(6.79)(1.5-1)(4)}{(1.5)(-15)} = 0.604 \textrm{ cm}$$
+$$ h_2 = - \frac{f(n-1)d}{nR_1} = - \frac{(6.79)(1.5-1)(4)}{(1.5)(4)} = -2.264 \textrm{ cm}$$
+$$ \frac{1}{s} + \frac{1}{p} = \frac{1}{f} \rightarrow \frac{1}{p} = \frac{1}{6.79} - \frac{1}{1.0 + 0.604}$$
+$$ p = -2.1 \textrm{ cm}$$
+But $p$ is measured from $h_2$, so the image is $-2.264 - 2.1 = -4.36$ cm from the back of the lens, which is 0.36 cm in front of the lens.
+
+\section*{Question 10}
+Given the following matrices,
+
+$$ 
+\bm{A} = \begin{bmatrix}
+    1 & 2 & -1 \\
+    0 & 3 & 1 \\
+    2 & 0 & 1 \\
+\end{bmatrix},\;
+\bm{B} = \begin{bmatrix}
+    2 & 1 & 0 \\
+    0 & -1 & 2 \\
+    1 & 1 & 3 \\
+\end{bmatrix} $$
+work out the product $\bm{A}\bm{B}$.\\\\
+
+
+$$\bm{A}\bm{B} = \begin{bmatrix}
+    1 & 2 & -1 \\
+    0 & 3 & 1 \\
+    2 & 0 & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+    2 & 1 & 0 \\
+    0 & -1 & 2 \\
+    1 & 1 & 3 \\
+\end{bmatrix}$$
+$$ = \begin{bmatrix}
+    (1)(2) + (2)(0) + (-1)(1) & (1)(1) + (2)(-1) + (-1)(1) & (1)(0) + (2)(2) + (-1)(3) \\
+    (0)(2) + (3)(0) + (1)(1) & (0)(1) + (3)(-1) + (1)(1) & (0)(0) + (3)(2) + (1)(3) \\
+    (2)(2) + (0)(0) + (1)(1) & (2)(1) + (0)(-1) + (1)(1) & (2)(0) + (0)(2) + (1)(3) \\
+\end{bmatrix} $$
+$$ = \begin{bmatrix}
+    1 & -2 & 1 \\
+    1 & -2 & 9 \\
+    5 & 3 & 3 \\
+\end{bmatrix}$$
+
+
+
+
+
+\end{document}
