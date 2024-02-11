@@ -36,7 +36,7 @@
 \begin{document}
 
 \section*{Question 1}
-Two thin lenses having focal lengths of $+15.0 cm$ and $-15.0$ cm respectively are positioned $60.0$ cm
+Two thin lenses having focal lengths of $+15.0$ cm and $-15.0$ cm respectively are positioned $60.0$ cm
 apart. A page of print is held $25.0$ cm in front of the positive lens. Describe, in detail, the image of the
 print (i.e. insofar as it’s paraxial). \\\\
 
@@ -69,9 +69,9 @@ Consider the case of two positive thin lenses, $L_1$ and $L_2$, separated by 5 c
 hole 1 cm in diameter is located between them, 2 cm from $L_2$, find the aperture stop and the locations
 and sizes of the pupils for an axial point, $S$, 12 cm in front of (to the left of) $L_1$.\\\\
 
-In order to determine the aperture stop, we can trace a separate ray from the axial point to the margin of each potential aperture stop. We then can back out the initial angle of the rays, and which potential stop resulted in a smaller angle will be the aperture stop. This will determine angle of the marginal ray.
+In order to determine the aperture stop, we can trace a separate ray from the axial point to the margin of each potential aperture stop. We then can back out the initial angle of the rays, and the potential stop that resulted in the smallest initial angle will be the aperture stop. This will determine the initial angle of the marginal ray.
 
-Lets call the initial ray at the axial point $S$, $\va{r}_S = \begin{bmatrix}
+Let's call the initial ray at the axial point $S$, $\va{r}_S = \begin{bmatrix}
     0 \\
     \alpha_0
 \end{bmatrix} $, where $\alpha_0$ is the initial angle we're trying to determine. The translation matrix that will bring $\va{r}_S$ to $L_1$ is
@@ -79,7 +79,7 @@ Lets call the initial ray at the axial point $S$, $\va{r}_S = \begin{bmatrix}
 $$ \bm{T_1} = \begin{bmatrix}
     1 & 12 \\
     0 & 1 \\
-\end{bmatrix} $$
+\end{bmatrix}, $$
 and we want to find the $\alpha_0$ which satisfies the following matrix equation
 
 $$ \begin{bmatrix}
@@ -93,11 +93,11 @@ $$ \begin{bmatrix}
 \begin{bmatrix}
     3 \\
     \alpha_0
-\end{bmatrix} $$
+\end{bmatrix}, $$
 
-Solve this matrix equation gives
+where 3 cm is the height of $L_1$. Solving this matrix equation gives
 
-$$ \alpha_0 = 0.25 $$
+$$ \alpha_0 = 0.25. $$
 
 Now for the diaphragm, the matrix that will bring $\va{r}_S$ to the margin of the diaphragm is given by the following matrix
 
@@ -116,7 +116,15 @@ $$ \bm{T_d}\bm{R_1}\bm{T_1} = \begin{bmatrix}
 \begin{bmatrix}
     \frac{2}{3} & 11\\
     - \frac{1}{9} & - \frac{1}{3}
-\end{bmatrix}$$
+\end{bmatrix},$$
+where the refraction matrix for a thin lens 
+$$\bm{R}(f) = 
+\begin{bmatrix}
+    1 & 0 \\
+    -\frac{1}{f} & 1 \\
+\end{bmatrix},
+$$
+was used.
 
 So, the matrix equation is 
 
@@ -132,12 +140,13 @@ $$ \begin{bmatrix}
 \begin{bmatrix}
     \frac{1}{2}   \\
     \alpha_{new}
-\end{bmatrix}$$
+\end{bmatrix},$$
+where $\frac{1}{2}$ cm is the height of the diaphragm.
 
 Solving,
-$$\alpha_{0} = 0.045$$
+$$\alpha_{0} = 0.045.$$
 
-Next, find the matrix that will bring $\va{r}_S$ to the margin of the second lens
+Next, find the matrix that will bring $\va{r}_S$ to the margin of the second lens:
 
 $$ \bm{T_2}\bm{T_d}\bm{R_1}\bm{T_1} = 
 \begin{bmatrix}
@@ -151,7 +160,7 @@ $$ \bm{T_2}\bm{T_d}\bm{R_1}\bm{T_1} =
 \begin{bmatrix}
     \frac{4}{9} & \frac{31}{3}\\
     - \frac{1}{9} & - \frac{1}{3}
-\end{bmatrix}
+\end{bmatrix}.
 $$
 
 Then, our matrix equation is
@@ -168,13 +177,15 @@ $$
 \begin{bmatrix}
     2   \\
     \alpha_{new}
-\end{bmatrix}$$
+\end{bmatrix},$$
+where 2 cm is the height of $L_2$.
+So, 
 
-$$ \alpha_0 = 0.1935$$
+$$ \alpha_0 = 0.1935.$$
 
-Since the initial angle made for the ray marginal to the diaphragm is the smallest, the diaphragm is the APERTURE STOP.
+Since the initial angle made for the ray marginal to the diaphragm is the smallest, THE DIAPHRAGM IS THE APERTURE STOP.
     
-Now to find the exit pupil and entrance pupil, we need to trace a chief ray. We'll let it be 1 cm above the axial point.
+Now to find the exit pupil and entrance pupil, we need to trace a chief ray. We'll let it be 1 cm above the axial point:
 
 $$
 \bm{T_d}\bm{R_1}\bm{T_1}
@@ -195,11 +206,11 @@ $$
 \begin{bmatrix}
     0   \\
     \alpha_{new}
-\end{bmatrix}
+\end{bmatrix}.
 $$
 Resulting in 
-$$ \alpha_{0} = -0.061$$
-If we then forward project this ray by translating until the height of ray is zero, this will give the location of entrance pupil.
+$$ \alpha_{0} = -0.061.$$
+If we then forward project this ray by translating until the height of ray is zero, this will give the location of entrance pupil:
 
 $$
 \begin{bmatrix}
@@ -214,13 +225,13 @@ $$
 \begin{bmatrix}
     0   \\
     -0.061
-\end{bmatrix}
+\end{bmatrix},
 $$
 
-$$ L = 16.5$$
-So, the entrance pupil will be located 16.5 cm from $S$
+$$ L = 16.5.$$
+So, the entrance pupil will be located 16.5 cm from $S$.
 
-The height of the entrance pupil can then be found by forward projecting the marginal ray through $L_1$ a distance equal to 16.5 cm.
+The height of the entrance pupil can then be found by forward projecting the marginal ray through $L_1$ a distance equal to 16.5 cm:
 
 $$ 
 \begin{bmatrix}
@@ -235,12 +246,12 @@ $$
 \begin{bmatrix}
     0.75   \\
     0.045
-\end{bmatrix}
+\end{bmatrix}.
 $$
 
 So, the entrance pupil will have a diameter of 1.5 cm.
 
-Now for the exit pupil, we need the angle of the marginal ray after it's been refracted through $L_2$.
+Now for the exit pupil, we need the angle of the marginal ray after it's been refracted through $L_2$:
 
 $$R_2
 \begin{bmatrix}
@@ -258,7 +269,7 @@ $$R_2
 \begin{bmatrix}
     \frac{4}{9} & \frac{31}{3}\\
     - \frac{7}{27} & - \frac{34}{9}
-\end{bmatrix}
+\end{bmatrix},
 $$
 $$
 \begin{bmatrix}
@@ -273,11 +284,11 @@ $$
 \begin{bmatrix}
     0.47\\
     -0.17 
-\end{bmatrix}
+\end{bmatrix}.
 $$
 
 
-We also need the refracted angle after the chief ray passed through $L_2$.
+We also need the refracted angle after the chief ray passed through $L_2$:
 
 $$
 \begin{bmatrix}
@@ -292,10 +303,10 @@ $$
 \begin{bmatrix}
     -0.18\\
     -0.03
-\end{bmatrix}
+\end{bmatrix}.
 $$
 
-Now we backtrace this ray until the height is zero
+Now we backtrace this ray until the height is zero:
 
 $$ 
 \begin{bmatrix}
@@ -310,12 +321,12 @@ $$
 \begin{bmatrix}
     0 \\
     -0.03
-\end{bmatrix}
+\end{bmatrix},
 $$
 
-Giving $L=-6.0$ cm. Making, the exit pupil $(12 + 5) - 6 = 11$ cm in front of the axial point.
+giving $L=-6.0$ cm. Making the exit pupil $(12 + 5) - 6 = 11$ cm in front of the axial point.
 
-We then can back trace the marginal ray after it's been refracted through $L_2$
+We then can back trace the marginal ray after it's been refracted through $L_2$:
 
 $$
 \begin{bmatrix}
@@ -330,9 +341,9 @@ $$
 \begin{bmatrix}
     1.5\\
     -0.17
-\end{bmatrix}
+\end{bmatrix},
 $$
-Making the exit pupil have a diameter of $3$ cm.
+making the exit pupil have a diameter of $3$ cm.
 
 
 
@@ -371,7 +382,7 @@ $$ \va{A} \cross \va{B} = \begin{bmatrix}
     \end{vmatrix} = \vu{i}(A_2 B_3 - A_3 B_2) + \vu{j}(A_3 B_1 - A_1 B_3) + \vu{k}(A_1 B_2 - A_2 B_1) $$
 by cofactor expansion of the determinant.
 Then, 
-$$(\va{A} \cross \va{B}) \vdot \va{C} = C_1 (A_2 B_3 - A_3 B_2) + C_2 (A_3 A_1 - A_1 A_3) + C_3 (A_1 A_2 - A_2 A_1)$$
+$$(\va{A} \cross \va{B}) \vdot \va{C} = C_1 (A_2 B_3 - A_3 B_2) + C_2 (A_3 B_1 - A_1 B_3) + C_3 (A_1 B_2 - A_2 B_1)$$
 We can reverse the cofactor expansion, giving
 $$ (\va{A} \cross \va{B}) \vdot \va{C} = 
     \begin{vmatrix}
@@ -407,9 +418,9 @@ Positive lens, so
 \end{center}
 First, we need $f$
 $$ \frac{1}{f} = (n - 1) \left(\frac{1}{R_1} - \frac{1}{R_2} + \frac{(n-1)d}{nR_1 R_2}\right) = (1.5 - 1) \left(\frac{1}{6} - \frac{1}{10} + \frac{(1.5-1)(3)}{(1.5)(6)(10)}\right)$$
-$$ f = 25 \textrm{ cm} $$
-$$ h_1 = - \frac{f(n-1)d}{nR_2} = - \frac{(25)(1.5-1)(3)}{(1.5)(10)} = -2.5 \textrm{ cm}$$
-$$ h_2 = - \frac{f(n-1)d}{nR_1} = - \frac{(25)(1.5-1)(3)}{(1.5)(6)} = -4.1667 \textrm{ cm}$$
+$$ f = 24 \textrm{ cm} $$
+$$ h_1 = - \frac{f(n-1)d}{nR_2} = - \frac{(24)(1.5-1)(3)}{(1.5)(10)} = -2.4 \textrm{ cm}$$
+$$ h_2 = - \frac{f(n-1)d}{nR_1} = - \frac{(24)(1.5-1)(3)}{(1.5)(6)} = -4.0 \textrm{ cm}$$
 
 \section*{Question 7}
 A spherical glass bottle 20 cm in diameter with walls that are negligibly thin is filled with water.
