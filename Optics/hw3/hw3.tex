@@ -1,0 +1,138 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools} % Math packages
+\usepackage[utf8]{inputenc} % Required for non-English characters
+\usepackage[english]{babel} % Spell-checking
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for header and footer marks
+\usepackage[margin=1.2in]{geometry} % Sets page margin
+\usepackage{esdiff} % Defines commands for differentials
+\mathtoolsset{showonlyrefs} % Only referenced equations are numbered
+\usepackage{xfrac} % Allows for slanted fractions using \sfrac{*}{*}
+\usepackage{graphicx} % For pictures
+\usepackage{siunitx}
+\usepackage{physics}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\usepackage{bm}
+
+% The following sets up the header and footer
+\fancyhf{}
+\pagestyle{fancy}
+\lhead{\hmwkCourse} %left header
+\rhead{\hmwkTitle \, \textendash \, \hmwkName \, \textendash \, \hmwkClass} % right header
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+% The following sets the information shown in header and footer
+\newcommand{\hmwkTitle}{Homework 3} % Assignment title
+\newcommand{\hmwkCourse}{Optics} % Course/class
+\newcommand{\hmwkName}{John Meneghini} % Your name
+\newcommand{\hmwkClass}{2/9/2024}
+
+% The following sets new paragraphs to start with a line skip instead of an indentation. Just my preference.
+\setlength{\parindent}{0pt} %No indentation of new paragraphs
+\setlength{\parskip}{10pt}
+
+\begin{document}
+
+\section*{Question 1}
+How many “yellow” wavelengths ($\lambda = 580$ nm) will fit into a distance equal to the thickness of a
+piece of paper (0.003 in)? How far would the same number of microwaves ($\nu = 1010$ Hz) extend? \\\\
+
+The number of wavelengths with just be $N = \frac{d_{\textrm{paper}}}{\lambda}$, but need to convert $d_{paper} = \qty{0.003}{in}$ into nm:
+
+\[
+    d_{\textrm{paper}} = \qty{0.003}{in} \frac{\qty{2.54}{cm}}{\qty{1}{in}} \frac{\qty{e7}{nm}}{\qty{1}{cm}} = \qty{76200}{nm} \rightarrow 
+    N_{\textrm{yellow}} = \frac{\qty{76200}{nm}}{\qty{580}{nm}} = 131.379
+\]
+
+For the microwaves,
+
+\[
+    c = \lambda \nu \rightarrow \lambda = \frac{\qty{3e8}{m.s^{-1}}}{\qty{e10}{Hz}} = \qty{0.03}{m}
+    \rightarrow d = N\lambda = 131.379(\qty{0.03}{m}) = \qty{3.94}{m}
+\]
+
+\section*{Question 2}
+A vibrating hammer strikes the end of a long metal rod in such a way that a periodic compression
+wave with a wavelength of 4.3 m travels down the rod's length at a speed of 3.5 km/s. What was the
+frequency of vibration? \\\\
+
+\[
+    \nu = \frac{v}{\lambda} = \frac{\qty{3.5e3}{m.s^{-1}}}{\qty{4.3}{m}} = \qty{813.953}{Hz}
+\]
+
+\section*{Question 3}
+The profile of a transverse harmonic wave traveling at 1.2 m/s on a string is given by
+
+\[
+    y = 0.02\sin(157x)
+\]
+
+where $x$ and $y$ are given in meters. Determine the amplitude, wavelength, frequency, and period of the
+wave.\\\\
+
+The amplitude $A$ is the leading coefficient:
+
+\[
+    A = 0.02
+\]
+
+The wavenumber $k$ is 
+
+\[
+    k = \qty{157}{m^{-1}} \rightarrow \lambda = \frac{2 \pi}{k} = \qty{0.04}{m}
+\]
+
+\[
+    \nu = \frac{v}{\lambda} = \frac{1.2}{0.04} = \qty{29.985}{Hz}
+\]
+
+\[
+    T = \frac{1}{\nu} = \qty{0.03335}{s}
+\]
+
+\section*{Question 4}
+Write the expression for the waveform of a harmonic wave of amplitude $10^4$ V/m, period $\qty{2.2e-15}{s}$,
+and speed $\qty{3e8}{m.s^{-1}}$. The wave is propagating in the negative $z$ direction and has a value of $10^3$ V/m
+at $t = 0$ s and $x = 0$ m. \\\\
+
+Our waveform will take the following functional form:
+
+\[
+    \Psi(\va{r}, t) = A \cos(\va{k} \vdot \va{r} - \omega t - \epsilon )
+\]
+
+So,
+
+\[
+    A = 10^4 V/m 
+\]
+
+\[
+    \nu = \frac{1}{T} \rightarrow \omega = 2 \pi \nu = \frac{2 \pi}{T} = \qty{2.86e15}{rad.s^{-1}}
+\]
+
+\[
+    v = \frac{\omega}{k} \rightarrow k = \frac{\omega}{v} = \qty{9.52e6}{m^{-1}}
+\]
+
+but, $\va{k}$ is in direction of propagation, so $\va{k} = -\qty{9.52e6}{m^{-1}} \vu{z}$. So, we have the form
+
+\[
+    \Psi(\va{r}, t) = (10^4 V/m ) \cos[(-\qty{9.52e6}{m^{-1}} \vu{z}) \vdot \va{r} - (\qty{2.86e15}{rad.s^{-1}}) t - \epsilon ]
+\]
+Taking the dot product:
+\[
+    \Psi(\va{r}, t) = (10^4 V/m ) \cos[(-\qty{9.52e6}{m^{-1}})z - (\qty{2.86e15}{rad.s^{-1}}) t - \epsilon ]
+\]
+
+Now, finding the phase shift $\epsilon$:
+
+\[
+    \Psi(\va{r}, t) = (10^4 V/m ) \cos[(-\qty{9.52e6}{m^{-1}})z - (\qty{2.86e15}{rad.s^{-1}}) t - \epsilon ]
+\]
+
+\end{document}
