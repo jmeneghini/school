@@ -1,0 +1,175 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools} % Math packages
+\usepackage[utf8]{inputenc} % Required for non-English characters
+\usepackage[english]{babel} % Spell-checking
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for header and footer marks
+\usepackage[margin=1.2in]{geometry} % Sets page margin
+\usepackage{esdiff} % Defines commands for differentials
+\mathtoolsset{showonlyrefs} % Only referenced equations are numbered
+\usepackage{xfrac} % Allows for slanted fractions using \sfrac{*}{*}
+\usepackage{graphicx} % For pictures
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{mdframed} % boxing answers
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\usepackage{bm}
+
+% The following sets up the header and footer
+\fancyhf{}
+\pagestyle{fancy}
+\lhead{\hmwkCourse} %left header
+\rhead{\hmwkTitle \, \textendash \, \hmwkName \, \textendash \, \hmwkClass} % right header
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+% The following sets the information shown in header and footer
+\newcommand{\hmwkTitle}{Homework 3} % Assignment title
+\newcommand{\hmwkCourse}{Optics} % Course/class
+\newcommand{\hmwkName}{John Meneghini} % Your name
+\newcommand{\hmwkClass}{2/26/2024}
+
+% The following sets new paragraphs to start with a line skip instead of an indentation. Just my preference.
+\setlength{\parindent}{0pt} %No indentation of new paragraphs
+\setlength{\parskip}{10pt}
+
+\begin{document}
+
+\section*{Question 1}
+Two 1 MHz radio antennae emitting in phase are separated by 600 m along a north-south line. A radio receiver placed 2 km east is equidistant from both transmitting antennae and picks up a fairly strong signal. How far north should the receiver be moved if it is again to detect a signal nearly as strong? \\\\
+
+Assuming these two antennae are emitting spherical wavefronts, we can use our results from the double slit. We found that maxima in brightness at a point with vertical distance $y$ on some screen a horizontal distance $x$ away, both with respect to the midpoint of the two antennae, is given by $\sin \theta = \frac{m \lambda}{a}$, where $a$ is the spacing between the antennae, $m\in\mathbb{Z}$, and $\sin \theta = \frac{y}{\sqrt{x^2 + y^2}}$. \\
+
+In our case, $a = \qty{600}{m}$, $\lambda = \frac{c}{\nu} = \frac{\qty{3e8}{m.s^{-1}}}{\qty{1e6}{Hz}} = \qty{299.792}{m}$, and $x = \qty{2e3}{m}$. However, since our interference pattern will be periodic with $\theta$, we can find the distance between the maxima corresponding to $m=0$ and $m=1$, which will correspond to points $y=0$ and $y=y_1$, respectively, and this will approximately be the distance to a similar strength position.
+
+\[
+    \frac{y_1}{\sqrt{x^2 + y_1^2}} = \frac{m \lambda}{a} = \frac{\lambda}{a} \rightarrow y^2\left(1 - \frac{\lambda^2}{a^2}\right) = \frac{\lambda^2 x^2}{a^2}
+\]
+
+\[
+    y_1 = \frac{x}{\sqrt{\frac{a^2}{\lambda^2} - 1}} = \frac{\qty{2e3}{m}}{{\sqrt{\frac{(\qty{600}{m})^2}{(\qty{299.792}{m})^2} - 1}}} = \qty{1153.64}{m}
+\]
+So, the receiver should be moved \fbox{\qty{1153.64}{m} north.}
+
+\section*{Question 2}
+An expanded beam of red light from a HeNe laser ($\lambda_0 = \qty{632.8}{nm}$) is incident on a screen containing two very narrow horizontal slits separated by $\qty{0.2}{mm}$. A fringe pattern appears on a white screen held $\qty{1}{m}$ away.
+
+\quad (a) How far (in radians and millimeters) above and below the central axis are the first zeros of irradiance? \\
+
+This is a double slit, so as before, we can use our results from class. In this case, we want to use the condition for minima in irradiance, which is
+
+\[
+    \sin \theta = \frac{(m + \frac{1}{2}) \lambda}{a}
+\]
+
+The first minima above and below the central axis correspond to $m=0$ and $m=-1$, respectively. We can use the same formula derived in Question 1, but with $(m+\frac{1}{2})$ present, it will show up in the root.
+\[
+    y_m = \frac{x}{\sqrt{\frac{a^2}{(m + \frac{1}{2})^2\lambda^2} - 1}}
+\]
+
+Since $(m + \frac{1}{2})$ is squared,
+
+\[
+    y_0 = y_{-1} = \frac{x}{\sqrt{\frac{4a^2}{\lambda^2} - 1}} = \frac{\qty{1}{m}}{\sqrt{\frac{4(\qty{0.2e-3}{m})^2}{(\qty{632.8e-9}{m})^2} - 1}} = \fbox{\qty{1.582}{mm}}
+\]
+
+and,
+
+\[
+    \theta = \arctan\left(\frac{y}{x}\right) = \arctan\left(\frac{1.582}{1e3}\right) = \fbox{\qty[scientific-notation=true]{0.00158}{rad}}
+\]
+
+\quad (b) How far (in millimeters) from the axis is the fifth bright band? \\
+
+As before, but $(m + \frac{1}{2}) \rightarrow m$ since we are looking for the bright bands.
+
+\[
+    y_m = \frac{x}{\sqrt{\frac{a^2}{m^2\lambda^2} - 1}}
+\]
+
+\[
+    y_5 = \frac{x}{\sqrt{\frac{a^2}{25\lambda^2} - 1}} = \frac{\qty{1}{m}}{\sqrt{\frac{(\qty{0.2e-3}{m})^2}{25(\qty{632.8e-9}{m})^2} - 1}} = \fbox{\qty{15.82}{mm}}
+\]
+
+\section*{Question 3}
+A stream of electrons, each having an energy of \qty{0.5}{eV}, impinges on a pair of extremely thin slits separated by \qty{1e-2}{mm}. What is the distance between adjacent minima on a screen \qty{20}{m} behind the slits? \\\\
+
+Since $x>>a$, we are in the far-field region and can apply the small angle approximation $\sin \theta \approx \tan \theta \approx \theta$:
+
+\[
+    \sin \theta \approx \tan \theta = \frac{y}{x} = \frac{(m + \frac{1}{2})\lambda}{a} \rightarrow y = \frac{(m + \frac{1}{2})\lambda x}{a}
+\]
+
+Let's define the distance between adjacent minima as 
+
+\[
+    \delta = y_{m+1} - y_m = \frac{(m + \frac{3}{2})\lambda x}{a} - \frac{(m + \frac{1}{2})\lambda x}{a} = \frac{\lambda x}{a} = \frac{\lambda x}{a}
+\]
+
+Treating these electrons as wave's with a de Broglie wavelength
+
+\[
+    \lambda = \frac{hc}{E} = \qty{2.48}{nm}
+\]
+
+So,
+
+\[
+    \delta = \frac{\qty{2.48e-6}{m} \qty{20}{m}}{\qty{1e-5}{m}} = \fbox{\qty{4.959}{m}}
+\]
+
+\section*{Question 5}
+Determine the general solution to the equation
+\[
+    \laplacian \varphi = 0
+\]
+if the universe is restricted to one dimension. (I.e. $\varphi = \varphi(x)$) \\\\
+
+In one dimension, the Laplacian becomes $\dv[2]{x}$
+
+\[
+    \dv[2]{\varphi}{x} = 0
+\]
+
+One approach to solving this is by finding the characteristic equation to the second order homogenous linear differential equation:
+
+\[
+    \lambda^2 = 0
+\]
+
+Which has the repeated root $\lambda = 0$. This case of a repeated real root of order 2 gives the following general solution:
+
+\[
+    \varphi(x) = e^{\lambda x}(A + Bx) = \fbox{A + Bx}
+\]
+
+\section*{Question 10}
+Solve the differential equation
+
+\[
+    {\frac{d^{2}x}{d t^{2}}}-6{\frac{d x}{d t}}+4x=0
+\]\\\\
+
+This second order homogenous linear differential equation has the following characteristic equation:
+
+\[
+    \lambda^2 - 6\lambda + 4 = 0 \rightarrow \lambda = \frac{6 \pm \sqrt{36 - 16}}{2} = 3 \pm \sqrt{5}
+\]
+
+For the case where the characteristic equation has unique real roots $\lambda_1$ and $\lambda_2$, the general solution takes the form of
+
+\[
+    x(t) = Ae^{\lambda_1 t} + Be^{\lambda_2 t} = Ae^{(3 - \sqrt{5})t} + Be^{(3 + \sqrt{5})t}
+\]
+
+
+
+
+
+
+
+
+\end{document}
