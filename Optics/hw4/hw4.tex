@@ -79,7 +79,7 @@ Since $(m + \frac{1}{2})$ is squared,
 and,
 
 \[
-    \theta = \arctan\left(\frac{y}{x}\right) = \arctan\left(\frac{1.582}{1e3}\right) = \fbox{\qty[scientific-notation=true]{0.00158}{rad}}
+    \theta = \arctan\left(\frac{y}{x}\right) = \arctan\left(\frac{1.582}{10^3}\right) = \fbox{\qty[scientific-notation=true]{0.00158}{rad}}
 \]
 
 \quad (b) How far (in millimeters) from the axis is the fifth bright band? \\
@@ -118,8 +118,62 @@ Treating these electrons as wave's with a de Broglie wavelength
 So,
 
 \[
-    \delta = \frac{\qty{2.48e-6}{m} \qty{20}{m}}{\qty{1e-5}{m}} = \fbox{\qty{4.959}{m}}
+    \delta = \frac{(\qty{2.48e-6}{m}) (\qty{20}{m})}{\qty{1e-5}{m}} = \fbox{\qty{4.959}{m}}
 \]
+
+\section*{Question 4}
+Imagine that we have an antenna at the edge of a lake picking up a signal from a distant radio
+star, which is just coming up above the horizon so that light from the star makes angle $\alpha$ with the lake
+surface. Write expressions for $\delta$ and for the angular position of the star when the antenna detects its
+first maximum.
+
+\begin{figure*}[htb!]
+    \centering
+    \includegraphics[width=\linewidth]{q4.png}
+\end{figure*}
+
+Finding $h$:
+
+\[
+    \sin \alpha = \frac{a}{2h} \rightarrow h = \frac{a}{2\sin \alpha}
+\]
+
+Now $d$:
+
+\[
+    d = h \cos{2 \alpha} = \frac{a \cos{2 \alpha}}{2 \sin \alpha}
+\]
+
+Finding the OPL of the lower ray (2nd ray)
+
+\[
+    OPL_2 = l - d + h = l - \frac{a \cos{2 \alpha}}{2 \sin \alpha} + \frac{a}{2\sin \alpha} = l + \frac{a}{2\sin \alpha}(1 - \cos{2\alpha}) = l + a \sin \alpha
+\]
+
+Now $\Delta OPL$
+
+\[
+    \Delta OPL = OPL_2 - OPL_1 = l + a \sin \alpha - l = a \sin \alpha
+\]
+
+For the case of multiple beams with ray 2 externally reflecting
+
+\[
+    \delta = k \Delta OPL + \pi = ka \sin \alpha + \pi
+\]
+
+For multiple beams, we'll have a maximum intensity when $\cos \delta = 1$, so, this occurs when $\delta = 2 \pi n$, where $n\in\mathbb{Z}$:
+
+\[
+    ka \sin \alpha + \pi = 2 \pi n
+\]
+
+Setting $n=1$ for the first maximum ($n=0$ would be impossible since this would result in $\alpha = 0$):
+
+\[
+    ka \sin \alpha = \pi \rightarrow \alpha = \sin^{-1}\left(\frac{\pi}{ka} \right) = \sin^{-1}\left(\frac{\lambda}{2a} \right)
+\]
+
 
 \section*{Question 5}
 Determine the general solution to the equation
@@ -145,6 +199,63 @@ Which has the repeated root $\lambda = 0$. This case of a repeated real root of 
 \[
     \varphi(x) = e^{\lambda x}(A + Bx) = \fbox{A + Bx}
 \]
+
+\section*{Question 6}
+A soap film surrounded by air has an index of refraction of 1.34. If a region of the film appears bright
+red ($\lambda_0$ = \qty{633}{nm}) in normally reflected light, what is its minimum thickness? \\\\
+
+For normal incidence and when $n_0<n_1<n_2$ (which holds since the soap film is surrounded by air), bright spots satisfy
+
+\[
+    2 n_1 d = (m - \frac{1}{2})\lambda
+\]
+
+Taking $m=1$ to find the minimum thickness:
+
+\[
+    2 n_1 d = \frac{\lambda}{2} \rightarrow d = \frac{\lambda}{4 n_1} = \frac{\qty{633}{nm}}{4(1.34)} = \fbox{\qty{118.1}{nm}}
+\]
+
+\section*{Question 7}
+A Michelson Interferometer is illuminated with monochromatic light. One of its mirrors is then
+moved \qty{2.53e-5}{m}, and it is observed that 92 fringe-pairs, bright and dark, pass by in the process.
+Determine the wavelength of the incident beam. \\\\
+
+For a Michelson interferometer surrounded by air,
+
+\[
+    2 \Delta d = m \lambda \rightarrow \lambda = \frac{2 \Delta d}{m} = \frac{2 \qty{2.53e-5}{m}}{92} = \qty{5.5e-7}{m}
+\]
+
+\section*{Question 8}
+Determine the refractive index and thickness of a film to be deposited on a glass surface ($n_g = 1.54$)
+such that no normally incident light of wavelength \qty{540}{nm} is reflected. \\
+
+For the consideration of normal incidence and the case of external reflection at both boundaries, destructive interference occurs when 
+
+\[
+    2 n_1 d = (m - \frac{1}{2})\lambda
+\]
+
+Taking $m=1$ to find the thinnest layer, and since we have 2 free variables, we'll choose $n_1 = 1.33$ so $n_g > n_1$
+
+\[
+    2 n_1 d = \frac{\lambda}{2} \rightarrow d = \frac{\lambda}{4 n_1} = \frac{\qty{540}{nm}}{4(1.33)} = \fbox{\qty{105.5}{nm}}
+\]
+
+\section*{Question 9}
+A glass microscope lens having an index of 1.55 is to be coated with a magnesium fluoride film to
+increase the transmission of normally incident yellow light ($\lambda_0 = \qty{550}{nm}$). What minimum thickness
+should be deposited on the lens? \\\\
+
+According to the Refractiveindex.info database, $n_{MgF_2} = 1.3777 \approx 1.38$. In the case of $n_0 < n_1 < n_2$, the interference of transmitted light is constructive, so we'll consider the case of $m = 1$ destructive interference of the reflected light, since this will result in the minimum thickness.
+
+\[
+    d = \frac{\lambda}{4 n_{MgF_2}} = \frac{\qty{550}{nm}}{4 (1.38)} = \qty{99.64}{nm}
+\]
+
+
+
 
 \section*{Question 10}
 Solve the differential equation
