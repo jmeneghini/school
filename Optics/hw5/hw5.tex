@@ -1,0 +1,236 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools} % Math packages
+\usepackage[utf8]{inputenc} % Required for non-English characters
+\usepackage[english]{babel} % Spell-checking
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for header and footer marks
+\usepackage[margin=1.2in]{geometry} % Sets page margin
+\usepackage{esdiff} % Defines commands for differentials
+\mathtoolsset{showonlyrefs} % Only referenced equations are numbered
+\usepackage{xfrac} % Allows for slanted fractions using \sfrac{*}{*}
+\usepackage{graphicx} % For pictures
+\usepackage{siunitx}
+\usepackage[arrowdel]{physics}
+\usepackage{mdframed} % boxing answers
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\usepackage{bm}
+
+% The following sets up the header and footer
+\fancyhf{}
+\pagestyle{fancy}
+\lhead{\hmwkCourse} %left header
+\rhead{\hmwkTitle \, \textendash \, \hmwkName \, \textendash \, \hmwkClass} % right header
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+% The following sets the information shown in header and footer
+\newcommand{\hmwkTitle}{Homework 3} % Assignment title
+\newcommand{\hmwkCourse}{Optics} % Course/class
+\newcommand{\hmwkName}{John Meneghini} % Your name
+\newcommand{\hmwkClass}{2/26/2024}
+
+% The following sets new paragraphs to start with a line skip instead of an indentation. Just my preference.
+\setlength{\parindent}{0pt} %No indentation of new paragraphs
+\setlength{\parskip}{10pt}
+
+\begin{document}
+
+\section*{Question 1}
+Write an expression for $\va*{E}$ and $\va*{B}$ fields that constitute a plane harmonic wave traveling in the $+z$-direction. The wave is linearly polarized with its plane of polarization at \ang{45} to the $xy$-plane. Note that this indicates the direction of the $\va*{E}_0$ vector when writing the waves. \\\\
+
+Since the wave is travelling in the $+z$-direction, $\va*{k} \vdot \va*{r} = kz$. Additionally, since $\va*{E}_0$ is at \ang{45} to the $xy$-plane, $\va*{E}_0 = \frac{E_0}{\sqrt{2}}(\vu*{i} + \vu*{j})$. So,
+
+\begin{align*}
+    \va*{E} &= \frac{E_0}{\sqrt{2}} \cos(kz - \omega t) (\vu*{i} + \vu*{j}) \\
+    \va*{B} &= \frac{E_0}{c\sqrt{2}} \cos(kz - \omega t) (-\vu*{i} + \vu*{j})
+\end{align*}
+
+\section*{Question 2}
+A \qty{550}{nm} harmonic EM-wave whose electric field is in the $z$-direction is traveling in the $y$-direction
+in vacuum. (a) What is the frequency of the wave? (b) Determine both $\omega$ and $k$ for this wave. (c) If the
+electric field amplitude is \qty{600}{V \per m}, what is the amplitude of the magnetic field? (d) Write an expression
+for both $\va*{E}(t)$ and $\va*{B}(t)$ given that each is zero at $y = \qty{0}{m}$ and $t = \qty{0}{s}$. 
+
+\subparagraph*{(a)}
+\[
+    \nu = \frac{c}{\lambda} = \frac{\qty{3e8}{m \per s}}{\qty{550}{nm}} = \qty{5.45e+14}{Hz}
+\]
+
+\subparagraph*{(b)}
+\begin{align*}
+    \omega &= 2 \pi \nu = \qty{3.43e+15}{rad \per s} \\
+    k &= \frac{2 \pi}{\lambda} = \qty{1.14e+07}{m^{-1}}
+\end{align*}
+
+\subparagraph*{(c)}
+\[
+    B_0 = \frac{E_0}{c} = \frac{\qty{600}{V \per m}}{\qty{3e8}{m \per s}} = \qty{2.00}{\mu T}
+\]
+
+\subparagraph*{(d)}
+$\sin(ky - \omega t)$ is zero at $y = \qty{0}{m}$ and $t = \qty{0}{s}$:
+
+\begin{align*}
+    \va*{E} &= (\qty{600}{V \per m}) \sin\left[(\qty{1.14e+07}{m^{-1}})y - (\qty{3.43e+15}{rad \per s}) t\right] \vu*{k}  \\
+    \va*{B} &= (\qty{2.00}{\mu T}) \sin\left[(\qty{1.14e+07}{m^{-1}})y - (\qty{3.43e+15}{rad \per s}) t\right] \vu*{i}
+\end{align*}
+
+\section*{Question 3}
+A light bulb puts out \qty{20}{W} of radiant energy. Assume it to be a point source and calculate the
+irradiance at a distance of \qty{1}{m}. \\\\
+
+For a point source:
+
+\[
+    I = \frac{P}{4 \pi r^2} = \frac{\qty{20}{W}}{4 \pi (\qty{1}{m})^2} = \qty{1.59}{W \per m^2}
+\]
+
+\section*{Question 4}
+A completely absorbing screen receives \qty{300}{W} of light for \qty{100}{s}. Compute the total linear momentum
+transferred to the screen. \\\\
+
+\[
+    E = Pt = pc \rightarrow p = \frac{Pt}{c} = \frac{(\qty{300}{W})(\qty{100}{s})}{\qty{3e8}{m \per s}} = \qty{1.00e-04}{kg.m \per s^2}
+\]
+
+\section*{Question 5}
+If $\va*{r}$ is the vector from the origin to the point ($x, y, z$), and $\va*{u}$ is any vector, prove: (a) $\div{\va*{r}} = 3$, (b) $\curl{\va*{r}} = \va*{0}$, and (c) $(\va*{u} \vdot \grad) \va*{r} = \va*{u}$. \\\\
+
+\[
+    r = x\vu*{i} + y\vu*{j} + z\vu*{k}
+\]
+
+\subparagraph*{(a)}
+\[
+    \div{\va*{r}} = \pdv{x} x + \pdv{y} y  + \pdv{z} z = 1 + 1 + 1 = 3
+\]
+
+\subparagraph*{(b)}
+
+\[
+    \curl{\va*{r}} = 
+    \begin{vmatrix}
+        \vu*{i} & \vu*{j} & \vu*{k}\\
+        \pdv{x} & \pdv{y} & \pdv{z}\\
+        x       & y       & z      \\
+    \end{vmatrix} = \vu*{i} ( 0 - 0) - \vu*{j}(0 - 0) + \vu*{k}(0 - 0) = \va*{0}
+\]
+
+\subparagraph*{(c)}
+
+\[
+    \va*{u} \vdot \grad = u_x \pdv{x} + u_y \pdv{y} + u_z \pdv{z}
+\]
+
+\begin{gather*}
+    (\va*{u} \vdot \grad) \va*{r} = \left(u_x \pdv{x} + u_y \pdv{y} + u_z \pdv{z} \right) \left(x\vu*{i} + y\vu*{j} + z\vu*{k} \right) \\
+     = \vu*{i} \left(u_x \pdv{x} x  + u_y \pdv{y} x + u_z \pdv{z} x \right) + \vu*{j} \left(u_x \pdv{x} y  + u_y \pdv{y} y + u_z \pdv{z} y \right) + \vu*{k} \left(u_x \pdv{x} z  + u_y \pdv{y} z + u_z \pdv{z} z \right) \\
+     = u_x \vu*{i} + u_y \vu*{j} + u_z \vu*{k} = \va*{u}
+\end{gather*}
+
+\section*{Question 6}
+What force on average will be exerted on the \qty{40}{m} $\times$ \qty{50}{m} flat, highly reflecting side of a space
+station wall if it is facing the Sun while in Earth orbit?
+
+\section*{Question 7}
+A plane, harmonic, linearly polarized light wave has an electric field given by
+
+\[
+    E_z = E_0 \cos\left[\pi 10^{15} \left(t - \frac{x}{0.65 c} \right) \right]
+\]
+while traveling through a piece of glass. (a) Find the frequency of the light. (b) What is the wavelength
+of this wave? (c) Determine the index of refraction of the glass. 
+
+\subparagraph*{(a)}
+
+\[
+    \nu = \frac{\omega}{2 \pi} = \frac{\pi 10^{15}}{2 \pi} = \qty{5.00e+14}{Hz}
+\]
+
+\subparagraph*{(b)}
+
+\[
+    \lambda = \frac{2 \pi}{k} = 2 \pi \frac{0.65 c}{\pi 10^{15}} = \qty{3.90e-01}{\mu m}
+\]
+
+\subparagraph*{(c)}
+
+\begin{gather*}
+    v = \lambda \nu = (\qty{5.00e+14}{Hz}) (\qty{3.90e-01}{\mu m}) = \qty{1.95e+08}{m \per s} = 0.65 c \\
+    n = \frac{c}{v} = \frac{1}{0.65} = 1.54
+\end{gather*}
+
+\section*{Question 8}
+Pulses of UV lasting \qty{2}{ns} each are emitted from a laser that has a beam of diameter \qty{2.5}{mm}. Given
+that each burst carries an energy of \qty{6}{J}, (a) determine the length in space of each wave pulse, and (b)
+find the average energy per unit volume for such a pulse.
+
+\subparagraph*{(a)}
+\[
+    l = c t = (\qty{3e8}{m \per s}) (\qty{2}{ns}) = \qty{6.00e-01}{m}
+\]
+
+\subparagraph*{(b)}
+\[
+    \frac{E_{\textrm{avg}}}{V} = \frac{\qty{6}{J}}{0.25 \pi d^2 l} = \frac{\qty{6}{J}}{0.25 \pi (\qty{2.5}{mm})^2 (\qty{6.00e-01}{m})} = \qty{2.04}{MJ \per m^3}
+\]
+
+\section*{Question 9}
+Imagine an electromagnetic wave that is traveling in the $x$-direction that has its electric field in the
+$y$-direction, given by
+
+\begin{gather*}
+    \va*{E} = \va*{E}_0 \cos(kx - \omega t) \\
+    \va*{B} = \va*{B}_0 \cos(kx - \omega t)
+\end{gather*}
+
+\textit{SHOW} that an application of the relation
+
+\[
+    \pdv{E}{x} = - \pdv{B}{t}  
+\]
+gives the relation $E_0 = c B_0$. \\\\
+
+\begin{align*}
+    \pdv{E}{x} &= \pdv{x} E_0 \cos(kx - \omega t) = - k E_0 \sin(kx - \omega t) \\
+    \pdv{B}{t} &= \pdv{t} B_0 \cos(kx - \omega t) = \omega B_0 \sin(kx - \omega t)
+\end{align*}
+
+\[
+    \pdv{E}{x} = - \pdv{B}{t} \rightarrow - k E_0 \sin(kx - \omega t) = -\omega B_0 \sin(kx - \omega t) \rightarrow E_0 = \frac{\omega}{k} B_0 = c B_0
+\]
+
+\section*{Question 10}
+Suppose you are solving some complicated problem. You have boiled the mathematics down to two
+equations,
+
+\begin{gather*}
+    X(r, \theta) = A \frac{\cos\theta}{r} + B \frac{\sin\theta}{r} \\
+    Y(r, \theta) = C r \cos\theta + D r \sin \theta
+\end{gather*}
+
+In addition, you know that at r = R (a particular value of r), the condition
+
+\[
+    X(r, \theta) = Y(r, \theta) = K_0 \sin\theta
+\]
+
+must be satisfied, where $K_0$ is some (otherwise known) constant. Please determine the values of
+coefficients $A$, $B$, $C$, and $D$ for which this condition is met by both functions listed above, keeping in
+mind that the condition must be met for any and all value(s) of $\theta$. \\\\
+
+\[
+    A \frac{\cos\theta}{R} + B \frac{\sin\theta}{R} = C R \cos\theta + D R \sin \theta = K_0 \sin\theta
+\]
+
+For this to hold for all $\theta$, $A=C=0$.
+
+\begin{gather*}
+    B \frac{\sin\theta}{R} = K_0 \sin\theta \rightarrow B = R K_0 \\
+    D R \sin \theta = K_0 \sin\theta \rightarrow D = \frac{K_0}{R}
+\end{gather*}
+
+\end{document}
