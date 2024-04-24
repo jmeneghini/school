@@ -11,6 +11,7 @@
 \mathtoolsset{showonlyrefs} % Only referenced equations are numbered
 \usepackage{xfrac} % Allows for slanted fractions using \sfrac{*}{*}
 \usepackage{graphicx} % For pictures
+\usepackage{float}
 \usepackage{siunitx}
 \usepackage[arrowdel]{physics}
 \usepackage{mdframed} % boxing answers
@@ -44,7 +45,7 @@ A beam of light in air strikes the surface of a smooth piece of plastic having a
 As derived in class, for the component parallel to the plane of incidence:
 
 \[
-    r_\parallel = \frac{E_{r, \parallel}}{E_{i, \parallel}} = \frac{n_i \cos \theta_t - n_t \cos \theta_i}{n_i \cos \theta_t + n_t \cos \theta_i}
+    r_\parallel = \frac{E_{r, \parallel}}{E_{i, \parallel}} = \frac{n_t \cos \theta_i - n_i \cos \theta_t}{n_i \cos \theta_t + n_t \cos \theta_i}
 \]
 
 and 
@@ -62,7 +63,7 @@ where $n_i = 1.00$, $n_t = 1.55$, $\theta_i = \ang{20}$, and
 Thus,
 
 \[
-    r_\parallel = -0.198,
+    r_\parallel = 0.198,
 \]
 
 and
@@ -74,15 +75,50 @@ and
 Considering the amplitudes,
 
 \[
-    E_{r, \parallel} = r_\parallel E_{i, \parallel} = -0.198 (\qty{10}{V \per m}) = \qty{1.98}{V \per m},
+    E_{r, \parallel} = r_\parallel E_{i, \parallel} = 0.198 (\qty{10}{V \per m}) = \qty{1.98}{V \per m},
 \]
 
 and
 
 \[
-    E_{r, \perp} = r_\perp E_{i, \perp} = -0.233 (\qty{20}{V \per m}) = \qty{4.67}{V \per m}
+    E_{r, \perp} = r_\perp E_{i, \perp} = 0.233 (\qty{20}{V \per m}) = \qty{4.67}{V \per m}
 \]
 \newpage
+\section*{Question 2}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = \textwidth]{reflection_coefficients.pdf}
+    \caption{$R_\parallel$ and $R_\perp$ for $n_i = 1.5$ and $n_t = 1.0$.}
+\end{figure}
+
+\section*{Question 3}
+Show that
+\[
+    T_\parallel = \frac{\sin 2 \theta_i \sin 2 \theta_t}{\sin^2 (\theta_i + \theta_t) \cos^2 (\theta_i - \theta_t)}
+\]
+and
+\[
+    T_\perp = \frac{\sin 2 \theta_i \sin 2 \theta_t}{\sin^2(\theta_i + \theta_t)}
+\] \\
+
+\begin{align}
+    T_\parallel &= \frac{n_t \cos \theta_t}{n_i \cos \theta_i} t_\parallel^2 = \frac{n_t \cos \theta_t}{n_i \cos \theta_i} \frac{4 n_i^2 \cos^2 \theta_i}{n_t^2 \cos^2 \theta_i + n_i^2\cos^2 \theta_t + 2 n_i n_t \cos \theta_i \cos \theta_t}\\
+    &=\frac{4 n_i n_t \cos \theta_i \cos \theta_t}{n_t^2 \cos^2 \theta_i + n_i^2\cos^2 \theta_t + 2 n_i n_t \cos \theta_i \cos \theta_t}\\
+    &=\frac{4\left(\frac{n_i^2 \sin \theta_i}{\sin \theta_t}\right)\cos \theta_i \cos \theta_t}{\frac{n_i^2 \sin^2 \theta_i}{\sin^2 \theta_t} \cos^2 \theta_i + n_i^2 \cos^2 \theta_t + 2\left(\frac{n_i^2 \sin \theta_i}{\sin \theta_t}\right)\cos \theta_i \cos \theta_t} \left( \frac{\sin^2 \theta_t}{\sin^2 \theta_t} \right)\\
+    &=\frac{\sin 2 \theta_i \sin 2 \theta_t}{\frac{1}{4}\sin^2 2 \theta_i + \frac{1}{4}\sin^2 2 \theta_t + \frac{1}{2}\sin 2 \theta_i \sin 2 \theta_t} = \frac{\sin 2 \theta_i \sin 2 \theta_t}{\frac{1}{4}\left(\sin 2 \theta_i  + \sin 2 \theta_t\right)^2}\\
+    &=  \frac{\sin 2 \theta_i \sin 2 \theta_t}{\sin^2 (\theta_i + \theta_t) \cos^2 (\theta_i - \theta_t)}
+\end{align}
+
+and
+
+\begin{align}
+    T_\perp &= \frac{n_t \cos \theta_t}{n_i \cos \theta_i} t_\perp^2 = \frac{n_t \cos \theta_t}{n_i \cos \theta_i} \frac{4 n_i^2 \cos^2 \theta_i}{n_i^2 \cos^2 \theta_i + n_t^2\cos^2 \theta_t + 2 n_i n_t \cos \theta_i \cos \theta_t}\\
+    &=\frac{4 n_i n_t \cos \theta_i \cos \theta_t}{n_i^2 \cos^2 \theta_i + n_t^2\cos^2 \theta_t + 2 n_i n_t \cos \theta_i \cos \theta_t}\\
+    &=\frac{4\left(\frac{n_i^2 \sin \theta_i}{\sin \theta_t}\right)\cos \theta_i \cos \theta_t}{n_i^2\cos^2 \theta_i + \frac{n_i^2 \sin^2 \theta_i}{\sin^2 \theta_t} \cos^2 \theta_t + 2\left(\frac{n_i^2 \sin \theta_i}{\sin \theta_t}\right)\cos \theta_i \cos \theta_t} \left( \frac{\sin^2 \theta_t}{\sin^2 \theta_t} \right)\\
+    &=\frac{\sin 2 \theta_i \sin 2 \theta_t}{\cos^2 \theta_i \sin^2 \theta_t + \cos^2 \theta_t \sin^2 \theta_i + \frac{1}{2}\sin 2 \theta_i \sin 2 \theta_t}\\
+    &=\frac{\sin 2 \theta_i \sin 2 \theta_t}{\sin^2 (\theta_i + \theta_t)}
+\end{align}
 \section*{Question 4}
 Show that
 \[
@@ -96,10 +132,40 @@ and
 For $R_\parallel  + T_\parallel = 1$,
 
 \begin{align}
-    R_\parallel  + T_\parallel &= r_\parallel^2 + t_\parallel^2 = \left(\frac{n_i \cos \theta_t - n_t \cos \theta_i}{n_i \cos \theta_t + n_t \cos \theta_i}\right)^2 + \left(\frac{2 n_i \cos \theta_i}{n_i \cos \theta_t + n_t \cos \theta_i}\right)^2 \\
-    &= \frac{n_i^2 \cos^2 \theta_t + n_t^2 \cos^2 \theta_i - 2 n_i n_t \cos \theta_i \cos \theta_t + 4 n_i^2 \cos^2 \theta_i}{n_i^2 \cos^2 \theta_t + n_t^2 \cos^2 \theta_i + 2 n_i n_t \cos \theta_i \cos \theta_t}\\
-    &= \frac{n_i^2 (1 - \sin^2 \theta_t) + n_t^2 \cos^2 \theta_i - 2 n_i n_t \cos \theta_i \cos \theta_t + 4 n_i^2 \cos^2 \theta_i}{n_i^2 \cos^2 \theta_t + n_t^2 \cos^2 \theta_i + 2 n_i n_t \cos \theta_i \cos \theta_t}\\
+    R_\parallel  + T_\parallel &= r_\parallel^2 + \frac{n_t \cos \theta_t}{n_i \cos \theta_i}t_\parallel^2 = \left(\frac{n_i \cos \theta_t - n_t \cos \theta_i}{n_i \cos \theta_t + n_t \cos \theta_i}\right)^2 + \frac{n_t \cos \theta_t}{n_i \cos \theta_i}\frac{4 n_i^2 \cos^2 \theta_i}{(n_i \cos \theta_t + n_t \cos \theta_i)^2}\\
+    &= \frac{n_i^2 \cos^2 \theta_t + n_t^2 \cos^2 \theta_i - 2 n_i n_t \cos \theta_i \cos \theta_t + 4 n_i n_t \cos \theta_i \cos \theta_t}{(n_i \cos \theta_t + n_t \cos \theta_i)^2}\\
+    &= \frac{n_i^2 \cos^2 \theta_t + n_t^2 \cos^2 \theta_i + 2 n_i n_t \cos \theta_i \cos \theta_t}{(n_i \cos \theta_t + n_t \cos \theta_i)^2}\\
+    &= \frac{(n_i \cos \theta_t + n_t \cos \theta_i)^2}{(n_i \cos \theta_t + n_t \cos \theta_i)^2} = 1
 \end{align}
+
+Now for $R_\perp  + T_\perp = 1$,
+
+\begin{align}
+    R_\perp  + T_\perp &= r_\perp^2 + \frac{n_t \cos \theta_t}{n_i \cos \theta_i}t_\perp^2 = \left(\frac{n_i \cos \theta_i - n_t \cos \theta_t}{n_i \cos \theta_i + n_t \cos \theta_t}\right)^2 + \frac{n_t \cos \theta_t}{n_i \cos \theta_i} \frac{4 n_i^2 \cos^2 \theta_i}{\left(n_i \cos \theta_i + n_t \cos \theta_t\right)^2}\\
+    &= \frac{n_i^2 \cos^2 \theta_i + n_t^2 \cos^2 \theta_t - 2 n_i n_t \cos \theta_i \cos \theta_t + 4 n_i n_t \cos \theta_i \cos \theta_t}{\left(n_i \cos \theta_i + n_t \cos \theta_t\right)^2}\\
+    &= \frac{n_i^2 \cos^2 \theta_i + n_t^2 \cos^2 \theta_t + 2 n_i n_t \cos \theta_i \cos \theta_t}{\left(n_i \cos \theta_i + n_t \cos \theta_t\right)^2}\\
+    &=\frac{\left(n_i \cos \theta_i + n_t \cos \theta_t\right)^2}{\left(n_i \cos \theta_i + n_t \cos \theta_t\right)^2} = 1
+\end{align}
+
+\section*{Question 5}
+Show that 
+\[
+    \grad({\ln \abs{\va*{r}}}) = \frac{\va*{r}}{r^2}
+\]\\
+
+In spherical coordinates,
+
+\[
+    \grad(f(r, \theta, \varphi)) = \pdv{f}{r} \vu*{r} + \frac{1}{r} \pdv{f}{\theta} \vu*{\theta} + \frac{1}{r \sin \theta}\pdv{f}{\varphi} \vu*{\varphi}.
+\]
+
+Thus,
+
+\[
+    \grad(\ln \abs{\va*{r}}) = \grad(\ln r) =  \vu*{r}\pdv{r} \ln r = \frac{\vu*{r}}{r} = \frac{\va*{r}}{r^2}.
+\]
+
+
 
 
 
